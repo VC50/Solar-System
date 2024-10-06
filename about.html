@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e2d;
+            color: #d1d1e0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #141421;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        section {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.6;
+            text-align: justify;
+            background-color: #2a2a3b;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        h3 {
+            text-align: center;
+            color: #e6e6ff;
+            margin-top: 40px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-indent: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            border: 1px solid #d1d1e0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #343449;
+            color: #e6e6ff;
+        }
+
+        td {
+            background-color: #3e3e52;
+            color: #cfcfe6;
+        }
+
+        /* Orbit Slide In */
+        .orbit-container {
+            width: 100%;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            animation: slide-in 5s ease-in-out forwards;
+        }
+
+        .orbit-container.slide-out {
+            animation: slide-out 3s ease-in-out forwards;
+        }
+
+        .solar-system {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .planet, .sun {
+            border-radius: 50%;
+            position: absolute;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .sun {
+            width: 60px;
+            height: 60px;
+            background-color: #f4c542;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 15px 5px rgba(255, 193, 7, 0.7);
+        }
+
+        .planet {
+            width: 20px;
+            height: 20px;
+            background-color: #d1d1e0;
+        }
+
+        .planet-name {
+            display: none;
+        }
+
+        .orbit {
+            border: 1px dashed #616180;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .mercury-orbit { width: 80px; height: 80px; }
+        .venus-orbit { width: 120px; height: 120px; }
+        .earth-orbit { width: 160px; height: 160px; }
+        .mars-orbit { width: 200px; height: 200px; }
+
+        @keyframes slide-in {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slide-out {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        footer {
+            background-color: #141421;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Near-Earth Objects</h1>
+    </header>
+        
+    
+    <div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
+
+    <!-- Orbit slide in front of table -->
+    <div class="orbit-container" id="orbitSlide">
+        <div class="solar-system">
+            <div class="sun"></div>
+            <div class="orbit mercury-orbit">
+                <div class="planet mercury"></div>
+            </div>
+            <div class="orbit venus-orbit">
+                <div class="planet venus"></div>
+            </div>
+            <div class="orbit earth-orbit">
+                <div class="planet earth"></div>
+            </div>
+            <div class="orbit mars-orbit">
+                <div class="planet mars"></div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <p>
+            Near-Earth objects (NEOs) are small bodies in the Solar System whose orbits bring them close to Earth.
+            They are categorized into Near-Earth Asteroids (NEAs) and Near-Earth Comets (NECs).
+        </p>
+
+        <p>
+            More than 34,000 NEAs have been identified, and their potential impact on Earth is closely monitored.
+            Some asteroids, like <strong>Apophis</strong> and <strong>Bennu</strong>, have received particular attention due to their size and proximity.
+        </p>
+
+        <h3>Planetary Data of the Solar System</h3>
+        <table>
+            <tr>
+                <th>Planet</th>
+                <th>Eccentricity</th>
+                <th>Period (Years)</th>
+                <th>SMA (AU)</th>
+            </tr>
+            <tr>
+                <td>Mercury</td>
+                <td>0.2056</td>
+                <td>0.24</td>
+                <td>0.387</td>
+            </tr>
+            <tr>
+                <td>Venus</td>
+                <td>0.0068</td>
+                <td>0.62</td>
+                <td>0.723</td>
+            </tr>
+            <tr>
+                <td>Earth</td>
+                <td>0.0167</td>
+                <td>1.00</td>
+                <td>1.000</td>
+            </tr>
+            <tr>
+                <td>Mars</td>
+                <td>0.0934</td>
+                <td>1.88</td>
+                <td>1.524</td>
+            </tr>
+        </table>
+        
+    </section>
+
+    <p align="center">© 2024 St€llar Pi0neers</p>
+    
+
+    <script>
+        // Automatically slide out orbit after 5 seconds
+        setTimeout(function() {
+            document.getElementById('orbitSlide').classList.add('slide-out');
+        }, 5000);
+    </script>
+    
+</body>
+</html>
